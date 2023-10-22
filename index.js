@@ -6,9 +6,11 @@ const dotenv = require('dotenv');
 const postRoutes = require('./routes/posts');
 const userRoutes = require('./routes/user');
 const path = require('path');
-
+import { fileURLToPath } from 'url';
 const app = express();
 dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
